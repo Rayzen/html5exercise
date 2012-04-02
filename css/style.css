@@ -9,3 +9,7 @@
 .bg-gray {
 	background-color: rgb(192,192,192);
 }
+
+#paper {
+  border: 2px solid gray;
+}
