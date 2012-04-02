@@ -77,4 +77,9 @@
     drawCircle(e.offsetX, e.offsetY, 16);
   });
 
+  /*Step 06*/
+  $('#button-clear').on('click', function(e){
+  	ctx.clearRect(0,0,canvas[0].width, canvas[0].height);
+  });
+
 }(this));
