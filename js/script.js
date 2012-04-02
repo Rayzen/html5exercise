@@ -25,4 +25,11 @@
 
   myButton.on('click',greets);
 
+  $('#mybutton').on('mouseover', function(e){
+  	console.log('I\'m hovering the button');
+  });
+  $('#mybutton').on('mouseout', function(e){
+  	console.log('I\'m out of the button');
+  });
+
 }(this));
