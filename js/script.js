@@ -19,6 +19,7 @@
   var myButton = $('#mybutton');
 
   var greets = function (e){
+  	console.log(e);
   	alert('Hello Web :)');
   };
 
