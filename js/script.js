@@ -63,13 +63,18 @@
   var bgColorDef = [150,150,150];
   var bgColor = bgColorDef;
 
-  var Circle = function (x, y, raduis) {
+  var strokeColDef = [0,0,0];
+  var strokeCol = strokeColDef;
+
+  var Circle = function (x, y, raduis, color) {
+    this.color = color;
     this.x = x;
     this.y = y;
     this.radius = radius;
   }
 
   Circle.prototype.draw = function() {
+    ctx.strokeStyle = this.color;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI, true);
     ctx.stroke();
@@ -81,7 +86,6 @@
     ctx.clearRect(0, 0, canvas[0].width, canvas[0].height);
     ctx.fillStyle = bgColor;
     ctx.fillRect(0, 0, canvas[0].width, canvas[0].height);
-    ctx.stokeStyle = 'rgb(0,0,0)';
     ctx.lineWidth = 2;
   };
 
@@ -103,7 +107,8 @@
   });
 
   canvas.on('mousedown', function (e) {
-    circles.push(new Circle(e.offsetX, e.offsetY, radius));
+    var col = 'rgb('+strokeCol[0]+','+strokeCol[1]+','+strokeCol[2]+')';
+    circles.push(new Circle(e.offsetX, e.offsetY, radius, col));
     draw();
   });
 
@@ -119,20 +124,38 @@
       $('#monitor-radius').text(radius);
   });
 
-  $('#red-slider').on('change',function(e){
+  $('#bg-red-slider').on('change',function(e){
     bgColor[0] = $(this).attr('value');
     draw();
     
   });
 
-  $('#green-slider').on('change',function(e){
+  $('#bg-green-slider').on('change',function(e){
     bgColor[1] = $(this).attr('value');
     draw();
   
   });
 
-  $('#blue-slider').on('change',function(e){
+  $('#bg-blue-slider').on('change',function(e){
     bgColor[2] = $(this).attr('value');
+    draw();
+    
+  });
+
+  $('#c-red-slider').on('change',function(e){
+    strokeCol[0] = $(this).attr('value');
+    draw();
+    
+  });
+
+  $('#c-green-slider').on('change',function(e){
+    strokeCol[1] = $(this).attr('value');
+    draw();
+  
+  });
+
+  $('#c-blue-slider').on('change',function(e){
+    strokeCol[2] = $(this).attr('value');
     draw();
     
   });
