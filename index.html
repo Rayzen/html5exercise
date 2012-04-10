@@ -19,6 +19,11 @@
       <canvas id="paper" width="400" height="300">
         Your browser doesn't support HTML5 Canvas.
       </canvas>
+      <table id="#rgbSlider">
+        <tr><td>Red:</td><td><input type="range" id="red-slider" min="0" max="255" value="150" step="1"/></td></tr>
+        <tr><td>Green:</td><td><input type="range" id="green-slider" min="0" max="255" value="150" step="1"/></td></tr>
+        <tr><td>Blue:</td><td><input type="range" id="blue-slider" min="0" max="255" value="150" step="1"/></td></tr>
+      </table>
     </div>
     <div class="container">
       <h3>Clear canvas</h3>
@@ -26,7 +31,8 @@
     </div>
     <div class="container">
       <h3>Circle Radius</h3>
-      <input type="range" id="slider" min="1" max="30" value="15" step="1" />
+      <input type="range" id="radius-slider" min="1" max="30" value="15" step="1" />
+      <span id="monitor-radius">15</span>
     </div>
   </section>
   <footer>

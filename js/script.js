@@ -56,14 +56,40 @@
   var buttonWhite = $('#button-white');
   var buttonGray = $('#button-gray');
   var containers = $('.container');
-  var slider =$('#slider');
+  var slider =$('#radius-slider');
 
   var radius = 15;
 
-  var drawCircle = function (x, y, radius) {
+  var bgColorDef = [150,150,150];
+  var bgColor = bgColorDef;
+
+  var Circle = function (x, y, raduis) {
+    this.x = x;
+    this.y = y;
+    this.radius = radius;
+  }
+
+  Circle.prototype.draw = function() {
     ctx.beginPath();
-    ctx.arc(x, y, radius, 0, 2*Math.PI, true);
+    ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI, true);
     ctx.stroke();
+  };
+
+  var circles = [];
+
+  var initCanvas = function (bgColor) {
+    ctx.clearRect(0, 0, canvas[0].width, canvas[0].height);
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, canvas[0].width, canvas[0].height);
+    ctx.stokeStyle = 'rgb(0,0,0)';
+    ctx.lineWidth = 2;
+  };
+
+  var draw = function(){
+    initCanvas('rgb('+bgColor[0]+','+bgColor[1]+','+bgColor[2]+')');
+    circles.forEach(function (circle) {
+      circle.draw();
+    });
   };
 
   buttonWhite.on('click', function (e) {
@@ -77,18 +103,46 @@
   });
 
   canvas.on('mousedown', function (e) {
-    drawCircle(e.offsetX, e.offsetY, radius);
+    circles.push(new Circle(e.offsetX, e.offsetY, radius));
+    draw();
   });
 
   /*Step 06*/
   $('#button-clear').on('click', function(e){
-  	ctx.clearRect(0,0,canvas[0].width, canvas[0].height);
-  });
-
-  $('#slider').on('change', function(e){
-      radius = slider.attr('value');
+    circles = [];
+    draw();
   });
 
   /*Step 07*/
+  $('#radius-slider').on('change', function(e){
+      radius = slider.attr('value');
+      $('#monitor-radius').text(radius);
+  });
+
+  $('#red-slider').on('change',function(e){
+    bgColor[0] = $(this).attr('value');
+    draw();
+    
+  });
+
+  $('#green-slider').on('change',function(e){
+    bgColor[1] = $(this).attr('value');
+    draw();
+  
+  });
+
+  $('#blue-slider').on('change',function(e){
+    bgColor[2] = $(this).attr('value');
+    draw();
+    
+  });
+
+  initCanvas('rgb('+bgColor[0]+','+bgColor[1]+','+bgColor[2]+')');
+
+
+
+
+  /*Step 08*/
+
 
 }(this));
