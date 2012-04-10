@@ -13,3 +13,29 @@
 #paper {
   border: 2px solid gray;
 }
+
+h1{
+	font-size: 32pt;
+	font-weight: bolder;
+	margin: 4px;
+	padding: 8px 4px 8px 4px;
+	color: black;
+	border: 1px dashed rgb(255,0,0);
+	text-align: center;
+}
+h3{
+	font-size: 16pt;
+	margin: 4px;
+	padding: 4px 1px 4px 1px;
+	border: 1px dotted #666;
+}
+
+footer{
+	font-size: 12pt;
+	font-weight: italic;
+	margin: 4px;
+	padding: 8px 4px 8px 4px;
+	color: black;
+	border: 1px dashed rgb(255,0,0);
+	text-align: center;
+}

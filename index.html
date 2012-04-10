@@ -20,8 +20,17 @@
         Your browser doesn't support HTML5 Canvas.
       </canvas>
     </div>
+        <div class="container">
+      <h3>Clear canvas</h3>
+      <button type="button" id="button-clear">Clear</button>
+    </div>
     <div class="container">
-<h3>Canvas background-color slider</h3>
+      <h3>Circle Radius</h3>
+      <input type="range" id="radius-slider" min="1" max="30" value="15" step="1" />
+      <span id="monitor-radius">15</span>
+    </div>
+    <div class="container">
+      <h3>Canvas background-color slider</h3>
       <table id="#bg-Slider">
         <tr><td>Red:</td><td><input type="range" id="bg-red-slider" min="0" max="255" value="150" step="1"/></td></tr>
         <tr><td>Green:</td><td><input type="range" id="bg-green-slider" min="0" max="255" value="150" step="1"/></td></tr>
@@ -35,15 +44,6 @@
         <tr><td>Green:</td><td><input type="range" id="c-green-slider" min="0" max="255" value="0" step="1"/></td></tr>
         <tr><td>Blue:</td><td><input type="range" id="c-blue-slider" min="0" max="255" value="0" step="1"/></td></tr>
       </table>
-    </div>
-    <div class="container">
-      <h3>Clear canvas</h3>
-      <button type="button" id="button-clear">Clear</button>
-    </div>
-    <div class="container">
-      <h3>Circle Radius</h3>
-      <input type="range" id="radius-slider" min="1" max="30" value="15" step="1" />
-      <span id="monitor-radius">15</span>
     </div>
   </section>
   <footer>
