@@ -56,6 +56,9 @@
   var buttonWhite = $('#button-white');
   var buttonGray = $('#button-gray');
   var containers = $('.container');
+  var slider =$('#slider');
+
+  var radius = 15;
 
   var drawCircle = function (x, y, radius) {
     ctx.beginPath();
@@ -74,12 +77,18 @@
   });
 
   canvas.on('mousedown', function (e) {
-    drawCircle(e.offsetX, e.offsetY, 16);
+    drawCircle(e.offsetX, e.offsetY, radius);
   });
 
   /*Step 06*/
   $('#button-clear').on('click', function(e){
   	ctx.clearRect(0,0,canvas[0].width, canvas[0].height);
   });
+
+  $('#slider').on('change', function(e){
+      radius = slider.attr('value');
+  });
+
+  /*Step 07*/
 
 }(this));
